@@ -14,6 +14,8 @@ public class MeleeCombat : MonoBehaviour
     private float lastAttackTime;
     private ThirdPersonController controller;
 
+    public ParticleSystem swingParticles;
+
     void Awake()
     {
         controller = GetComponent<ThirdPersonController>();
@@ -53,5 +55,10 @@ public class MeleeCombat : MonoBehaviour
         if (weaponCollider != null)
             weaponCollider.enabled = false;
 
+    }
+
+    public void MeleeSwingEffect()
+    {
+        swingParticles.Play();
     }
 }
