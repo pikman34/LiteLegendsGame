@@ -5810,6 +5810,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 697833044661111705, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9.159516
+      objectReference: {fileID: 0}
+    - target: {fileID: 697833044661111705, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 9.159516
+      objectReference: {fileID: 0}
+    - target: {fileID: 697833044661111705, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 9.159516
+      objectReference: {fileID: 0}
+    - target: {fileID: 697833044661111705, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 6.8757
+      objectReference: {fileID: 0}
+    - target: {fileID: 697833044661111705, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 714934591219966634, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1790962567643758479, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5890,6 +5914,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2646867389270029399, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.0091064
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646867389270029399, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.0091064
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646867389270029399, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.0091064
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646867389270029399, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -406.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646867389270029399, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3476589368042423027, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5897,6 +5941,30 @@ PrefabInstance:
     - target: {fileID: 4072541136281390053, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
       propertyPath: m_Name
       value: Spell Wheel Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808044640441253797, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.0091064
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808044640441253797, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.0091064
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808044640441253797, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.0091064
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808044640441253797, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 457.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808044640441253797, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142660694962263468, guid: 308be5f27beef9a4ea972c58f2a552e4, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9417,6 +9485,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 670634921}
   - {fileID: 783291332}
   - {fileID: 216418122}
   - {fileID: 1051961675}
@@ -9439,4 +9508,3 @@ SceneRoots:
   - {fileID: 1268451182}
   - {fileID: 855292669}
   - {fileID: 1688487782}
-  - {fileID: 670634921}
