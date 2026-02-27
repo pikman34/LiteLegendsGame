@@ -16068,6 +16068,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BLAAAAST
       objectReference: {fileID: 0}
+    - target: {fileID: 5195315763782401237, guid: 6f1f4874f9b26a54a9e247f56d9c095e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
