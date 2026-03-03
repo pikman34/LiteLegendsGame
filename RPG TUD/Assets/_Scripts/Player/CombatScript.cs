@@ -2,15 +2,17 @@ using UnityEngine;
 using StarterAssets;
 using System;
 using Cinemachine;
+using UnityEngine.InputSystem;
 
 public class CombatScript : MonoBehaviour
 {
     [Header("Combat Settings")]
-    public float attackCooldown = 0.8f;
-    public float shootCooldown = 1f;
+    public float attackCooldown = 0.75f;
+    public float shootCooldown = .75f;
     public float castCooldown = 3f;
-    public int attackDamage = 25;
-    public int shootDamage = 15;
+    private float lastAttackTime;
+    private float lastShootTime;
+    private float lastCastTime;
     public bool isShooting = false;
     public bool isCasting = false;
     public bool isMeleeing = false;
@@ -23,13 +25,12 @@ public class CombatScript : MonoBehaviour
 
     [Header("References")]
     public Animator animator;
-    public Collider weaponCollider;
-    private float lastAttackTime;
-    private float lastShootTime;
-    private float lastCastTime;
+    public Collider weaponCollider; 
 
     private ThirdPersonController controller;
     public CinemachineVirtualCamera cinemachineCamera;
+    public GameObject arrowPrefab;
+    public Transform spawnPoint;
 
     public ParticleSystem swingParticles;
     public ParticleSystem hitParticles;
@@ -49,17 +50,7 @@ public class CombatScript : MonoBehaviour
 
     void Update()
     {
-        //FindNearestEnemy();
-
-        /*if (isLocked && currentTarget != null)
-        {
-            float distanceToTarget = Vector3.Distance(transform.position, currentTarget.position);
-            if (distanceToTarget > lockRange)
-            {
-                UnlockTarget();
-            }
-        }*/
-
+        Cursor.visible = true;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -73,7 +64,7 @@ public class CombatScript : MonoBehaviour
         {
             TryCast();
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetTrigger("Roll");
         }
@@ -87,12 +78,17 @@ public class CombatScript : MonoBehaviour
         lastAttackTime = Time.time;
         isMeleeing = true;
         animator.SetTrigger("Attack");
-        
     }
 
     void meleeParticles()
     {
         swingParticles.Play();
+    }
+
+    void shootArrow()
+    {
+        Instantiate(arrowPrefab, spawnPoint.position, spawnPoint.rotation);
+        //shootParticles.Play();
     }
 
     void TryShoot()
@@ -101,10 +97,8 @@ public class CombatScript : MonoBehaviour
             return;
 
         lastShootTime = Time.time;
-
         isShooting = true;
         animator.SetTrigger("Shoot");
-        
     }
 
     void TryCast()
@@ -113,48 +107,7 @@ public class CombatScript : MonoBehaviour
             return;
 
         lastCastTime = Time.time;
-
         isCasting = true;
         animator.SetTrigger("Cast");
-        
     }
-
-    void ToggleSoftLock()
-    {
-        if (currentTarget == null)
-            return;
-
-        isLocked = !isLocked;
-
-        if (isLocked)
-            cinemachineCamera.LookAt = currentTarget;
-        else
-            cinemachineCamera.LookAt = player.transform; // Reset camera to player
-    }
-
-    void FindNearestEnemy()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Transform nearest = null;
-        float shortestDistance = lockRange;
-
-        foreach (GameObject enemy in enemies)
-        {
-            float distance = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distance <= shortestDistance)
-            {
-                shortestDistance = distance;
-                nearest = enemy.transform;
-            }
-        }
-
-        currentTarget = nearest; // null if none in range
-    }
-
-    void UnlockTarget()
-    {
-        isLocked = false;
-        currentTarget = null;
-    }
-   
 }
