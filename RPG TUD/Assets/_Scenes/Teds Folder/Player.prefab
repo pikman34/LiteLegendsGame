@@ -688,11 +688,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978a6dd80d9623c4e86ccd59828fcb47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  attackCooldown: 0.8
+  attackCooldown: 1.25
+  shootCooldown: 1
+  castCooldown: 3
   attackDamage: 25
+  shootDamage: 15
+  isShooting: 0
+  isCasting: 0
+  isMeleeing: 0
+  lockRange: 10
+  currentTarget: {fileID: 0}
+  rotateSpeed: 25
   animator: {fileID: 4730158601119230555}
   weaponCollider: {fileID: 6168371935276573895}
   swingParticles: {fileID: 4410509916980181270}
+  hitParticles: {fileID: 0}
+  shootParticles: {fileID: 0}
 --- !u!114 &6930600027617026078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2377,6 +2388,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &6595897664406247525
 BoxCollider:
@@ -2504,6 +2516,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &6168371935276573895
 BoxCollider:
