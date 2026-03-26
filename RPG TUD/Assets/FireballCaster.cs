@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class FireballCaster : MonoBehaviour
@@ -7,13 +7,11 @@ public class FireballCaster : MonoBehaviour
     public Transform fireballSpawnPoint;
     public Camera playerCamera;
     public PlayerTurn playerTurn;
-
     public float distance = 10f;
     public float travelTime = 0.5f;
     public float arcHeight = 3f;
     public float spawnForwardOffset = 1f;
-
-    public float turnTime = 0.12f;
+    public float turnTime = 0.08f;
     public float castDelay = 0.02f;
 
     void Update()
@@ -26,7 +24,11 @@ public class FireballCaster : MonoBehaviour
 
     IEnumerator CastFireball()
     {
-
+        if (fireballPrefab == null || fireballSpawnPoint == null || playerCamera == null)
+        {
+            Debug.LogWarning("Missing references.");
+            yield break;
+        }
 
         Vector3 forward = playerCamera.transform.forward;
         forward.y = 0f;
@@ -45,6 +47,11 @@ public class FireballCaster : MonoBehaviour
 
             timer += Time.deltaTime;
             yield return null;
+        }
+
+        if (playerTurn != null)
+        {
+            playerTurn.StopTurning();
         }
 
         yield return new WaitForSeconds(castDelay);
