@@ -18,10 +18,13 @@ public class CombatScript : MonoBehaviour
     public bool isMeleeing = false;
     
     [Header("Lock-on")]
-    public float lockRange = 20f;
+    public float lockOnRadius = 20f;
+    public LayerMask enemyMask;
     public Transform currentTarget;
-    public float rotateSpeed = 25f;
-    public bool isLocked = false;
+    public bool isLockedOn = false;
+    public float lockRotateSpeed = 10f;
+    public Transform cameraTarget;
+
 
     [Header("References")]
     public Animator animator;
@@ -110,4 +113,7 @@ public class CombatScript : MonoBehaviour
         isCasting = true;
         animator.SetTrigger("Cast");
     }
+
+    
+
 }
