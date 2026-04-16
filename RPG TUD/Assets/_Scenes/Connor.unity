@@ -40369,6 +40369,7 @@ GameObject:
   - component: {fileID: 1127229006}
   - component: {fileID: 1127229005}
   - component: {fileID: 1127229010}
+  - component: {fileID: 1127229011}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -40524,6 +40525,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1127229011
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127229004}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1203180502
 GameObject:
   m_ObjectHideFlags: 0
@@ -66089,6 +66111,7 @@ GameObject:
   - component: {fileID: 1870718605}
   - component: {fileID: 1870718604}
   - component: {fileID: 1870718603}
+  - component: {fileID: 1870718609}
   m_Layer: 6
   m_Name: Enemy (1)
   m_TagString: Enemy
@@ -66244,6 +66267,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1870718609
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870718602}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1902837193 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
@@ -72108,11 +72152,12 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   isLockedOn: 0
   lockRotateSpeed: 10
-  cameraTarget: {fileID: 5075437846096855406}
+  lockOnAngle: 60
   animator: {fileID: 1193382433220762388}
   weaponCollider: {fileID: 529120742}
   cinemachineCamera: {fileID: 603667203}
-  arrowPrefab: {fileID: 5079435184537647157, guid: 01a9d3b39cb134d41ab185b497a6320d, type: 3}
+  arrowPrefab: {fileID: 5079435184537647157, guid: 4b7bc9db015284940ac10df412209e84, type: 3}
+  spellPrefab: {fileID: 5079435184537647157, guid: 01a9d3b39cb134d41ab185b497a6320d, type: 3}
   spawnPoint: {fileID: 1412773294}
   swingParticles: {fileID: 2015121692}
   hitParticles: {fileID: 2015121692}

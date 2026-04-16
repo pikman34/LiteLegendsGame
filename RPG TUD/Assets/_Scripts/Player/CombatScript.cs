@@ -23,8 +23,7 @@ public class CombatScript : MonoBehaviour
     public Transform currentTarget;
     public bool isLockedOn = false;
     public float lockRotateSpeed = 10f;
-    public Transform cameraTarget;
-
+    public float lockOnAngle = 60f;
 
     [Header("References")]
     public Animator animator;
@@ -33,6 +32,7 @@ public class CombatScript : MonoBehaviour
     private ThirdPersonController controller;
     public CinemachineVirtualCamera cinemachineCamera;
     public GameObject arrowPrefab;
+    public GameObject spellPrefab;
     public Transform spawnPoint;
 
     public ParticleSystem swingParticles;
@@ -90,8 +90,23 @@ public class CombatScript : MonoBehaviour
 
     void shootArrow()
     {
-        Instantiate(arrowPrefab, spawnPoint.position, spawnPoint.rotation);
+        GameObject arrow = Instantiate(arrowPrefab, spawnPoint.position, spawnPoint.rotation);
         //shootParticles.Play();
+
+        /*if (currentTarget != null)
+        {
+            arrow.GetComponent<ProjectileScript>().SetTarget(currentTarget);
+        }*/
+    }
+    void castSpell()
+    {
+        GameObject spell = Instantiate(spellPrefab, spawnPoint.position, spawnPoint.rotation);
+        //shootParticles.Play();
+
+        if (currentTarget != null)
+        {
+            spell.GetComponent<ProjectileScript>().SetTarget(currentTarget);
+        }
     }
 
     void TryShoot()
@@ -99,8 +114,10 @@ public class CombatScript : MonoBehaviour
         if (Time.time < lastShootTime + shootCooldown && !isMeleeing && !isCasting  )
             return;
 
+        currentTarget = FindTargetOnShoot();
         lastShootTime = Time.time;
         isShooting = true;
+        
         animator.SetTrigger("Shoot");
     }
 
@@ -114,6 +131,27 @@ public class CombatScript : MonoBehaviour
         animator.SetTrigger("Cast");
     }
 
-    
+    Transform FindTargetOnShoot()
+    {
+        Collider[] hits = Physics.OverlapSphere(transform.position, lockOnRadius, enemyMask);
 
+        Transform bestTarget = null;
+        float bestAngle = lockOnAngle;
+
+        foreach (Collider hit in hits)
+        {
+            Vector3 dir = (hit.transform.position - transform.position).normalized;
+            float angle = Vector3.Angle(transform.forward, dir);
+
+            if (angle < bestAngle)
+            {
+                bestAngle = angle;
+                bestTarget = hit.transform;
+            }
+        }
+
+        return bestTarget;
+    }
+
+    
 }
