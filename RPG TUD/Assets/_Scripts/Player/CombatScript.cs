@@ -1,8 +1,6 @@
 using UnityEngine;
 using StarterAssets;
-using System;
 using Cinemachine;
-using UnityEngine.InputSystem;
 
 public class CombatScript : MonoBehaviour
 {
@@ -27,21 +25,18 @@ public class CombatScript : MonoBehaviour
 
     [Header("References")]
     public Animator animator;
-    public Collider weaponCollider; 
-
+    public Collider weaponCollider;
     private ThirdPersonController controller;
     public CinemachineVirtualCamera cinemachineCamera;
     public GameObject arrowPrefab;
     public GameObject spellPrefab;
+    public GameObject shieldPrefab;
     public Transform spawnPoint;
-
+    public GameObject player;
     public ParticleSystem swingParticles;
     public ParticleSystem hitParticles;
     public ParticleSystem shootParticles;
-    public GameObject player;
-
     
-
     void Awake()
     {
         controller = GetComponent<ThirdPersonController>();
@@ -88,6 +83,7 @@ public class CombatScript : MonoBehaviour
         swingParticles.Play();
     }
 
+    //search for "shoot" anim in files and check for animation event btw
     void shootArrow()
     {
         GameObject arrow = Instantiate(arrowPrefab, spawnPoint.position, spawnPoint.rotation);
@@ -98,6 +94,8 @@ public class CombatScript : MonoBehaviour
             arrow.GetComponent<ProjectileScript>().SetTarget(currentTarget);
         }*/
     }
+
+    //search for "cast" anim in files and check for animation event btw
     void castSpell()
     {
         GameObject spell = Instantiate(spellPrefab, spawnPoint.position, spawnPoint.rotation);
@@ -131,6 +129,8 @@ public class CombatScript : MonoBehaviour
         animator.SetTrigger("Cast");
     }
 
+
+    //finnicky code but kinda works
     Transform FindTargetOnShoot()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, lockOnRadius, enemyMask);

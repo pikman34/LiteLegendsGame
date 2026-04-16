@@ -14,6 +14,8 @@ public class SimpleEnemy : MonoBehaviour
     public float attackSpeed = 8f;
 
     public float orbitTime = 1.5f;
+    public float damage = 10f;
+    public float health = 50f;
 
     public float patrolRadius = 4f;
     public float patrolWaitTime = 2f;

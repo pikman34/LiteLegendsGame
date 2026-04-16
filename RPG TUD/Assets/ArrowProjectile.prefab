@@ -5038,6 +5038,8 @@ MonoBehaviour:
   lifetime: 2
   isSpell: 0
   isArrow: 1
+  damage: 0
+  hitEffect: {fileID: 4530400598586486339, guid: 4529cb8333cde234b830107029e197e7, type: 3}
 --- !u!65 &5682892477938005170
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5057,8 +5059,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.92551786, y: 0.59051603, z: 1.0601792}
-  m_Center: {x: 0.0034346282, y: -0.0133339465, z: -0.048197642}
+  m_Size: {x: 1.299373, y: 0.59051603, z: 0.66464055}
+  m_Center: {x: -0.005358066, y: -0.013333953, z: 0.20902336}
 --- !u!1 &6101627654608428410
 GameObject:
   m_ObjectHideFlags: 0

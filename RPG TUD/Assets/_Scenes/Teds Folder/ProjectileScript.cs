@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
@@ -9,7 +10,21 @@ public class ProjectileScript : MonoBehaviour
     private float timer;
     public float isSpell;
     public float isArrow;
+    public float damage;
+    public GameObject hitEffect;
 
+    void Start()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        Collider[] playerColliders = player.GetComponentsInChildren<Collider>();
+        Collider myCollider = GetComponent<Collider>();
+
+        foreach (Collider col in playerColliders)
+        {
+            Physics.IgnoreCollision(myCollider, col);
+        }
+    }
     void Update()
     {
         timer += Time.deltaTime;
@@ -28,8 +43,6 @@ public class ProjectileScript : MonoBehaviour
             }
 
             Vector3 dir = (target.position - transform.position).normalized;
-
-            // Smooth rotation
             Quaternion lookRot = Quaternion.LookRotation(dir);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, rotateSpeed * Time.deltaTime);
         }
@@ -44,5 +57,17 @@ public class ProjectileScript : MonoBehaviour
     public void SetTarget(Transform t)
     {
         target = t;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.root.CompareTag("Player")) return;
+
+        if (hitEffect != null)
+        {
+            Instantiate(hitEffect, transform.position, Quaternion.identity);   
+        }
+
+        Destroy(gameObject);
     }
 }

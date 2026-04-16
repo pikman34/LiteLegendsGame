@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4420368092584427536}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: -0, z: -0, w: -0.00000032782552}
-  m_LocalPosition: {x: 0, y: -0, z: 0.44}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0, b: 0.6766882, a: 1}
+      maxColor: {r: 1, g: 0.50181097, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4946,6 +4946,8 @@ MonoBehaviour:
   lifetime: 2
   isSpell: 1
   isArrow: 0
+  damage: 50
+  hitEffect: {fileID: 4530400598586486339, guid: 4529cb8333cde234b830107029e197e7, type: 3}
 --- !u!65 &5682892477938005170
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4965,5 +4967,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.92551786, y: 0.59051603, z: 1.0601792}
-  m_Center: {x: 0.0034346282, y: -0.0133339465, z: -0.048197642}
+  m_Size: {x: 0.34183416, y: 0.33968216, z: 0.64799815}
+  m_Center: {x: -0.00035553746, y: 0.009176733, z: 0.21677579}
