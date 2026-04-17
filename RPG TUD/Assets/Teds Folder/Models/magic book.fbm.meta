@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:RPG TUD/Assets/Teds Folder/Models/magic book.fbm.meta
 guid: fdd14f42a04c1f944ad32397c87aa71b
+=======
+guid: 67adce52645164249a2110d734771463
+>>>>>>> dc24b3e29817359d7ddb1086eb1f443abd2d726a:RPG TUD/Assets/_Scenes/Teds Folder/Models/magic book.fbm.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

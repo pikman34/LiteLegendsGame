@@ -1,8 +1,6 @@
 using UnityEngine;
 using StarterAssets;
-using System;
 using Cinemachine;
-using UnityEngine.InputSystem;
 
 public class CombatScript : MonoBehaviour
 {
@@ -18,27 +16,27 @@ public class CombatScript : MonoBehaviour
     public bool isMeleeing = false;
     
     [Header("Lock-on")]
-    public float lockRange = 20f;
+    public float lockOnRadius = 20f;
+    public LayerMask enemyMask;
     public Transform currentTarget;
-    public float rotateSpeed = 25f;
-    public bool isLocked = false;
+    public bool isLockedOn = false;
+    public float lockRotateSpeed = 10f;
+    public float lockOnAngle = 60f;
 
     [Header("References")]
     public Animator animator;
-    public Collider weaponCollider; 
-
+    public Collider weaponCollider;
     private ThirdPersonController controller;
     public CinemachineVirtualCamera cinemachineCamera;
     public GameObject arrowPrefab;
+    public GameObject spellPrefab;
+    public GameObject shieldPrefab;
     public Transform spawnPoint;
-
+    public GameObject player;
     public ParticleSystem swingParticles;
     public ParticleSystem hitParticles;
     public ParticleSystem shootParticles;
-    public GameObject player;
-
     
-
     void Awake()
     {
         controller = GetComponent<ThirdPersonController>();
@@ -85,10 +83,28 @@ public class CombatScript : MonoBehaviour
         swingParticles.Play();
     }
 
+    //search for "shoot" anim in files and check for animation event btw
     void shootArrow()
     {
-        Instantiate(arrowPrefab, spawnPoint.position, spawnPoint.rotation);
+        GameObject arrow = Instantiate(arrowPrefab, spawnPoint.position, spawnPoint.rotation);
         //shootParticles.Play();
+
+        /*if (currentTarget != null)
+        {
+            arrow.GetComponent<ProjectileScript>().SetTarget(currentTarget);
+        }*/
+    }
+
+    //search for "cast" anim in files and check for animation event btw
+    void castSpell()
+    {
+        GameObject spell = Instantiate(spellPrefab, spawnPoint.position, spawnPoint.rotation);
+        //shootParticles.Play();
+
+        if (currentTarget != null)
+        {
+            spell.GetComponent<ProjectileScript>().SetTarget(currentTarget);
+        }
     }
 
     void TryShoot()
@@ -96,8 +112,10 @@ public class CombatScript : MonoBehaviour
         if (Time.time < lastShootTime + shootCooldown && !isMeleeing && !isCasting  )
             return;
 
+        currentTarget = FindTargetOnShoot();
         lastShootTime = Time.time;
         isShooting = true;
+        
         animator.SetTrigger("Shoot");
     }
 
@@ -110,4 +128,30 @@ public class CombatScript : MonoBehaviour
         isCasting = true;
         animator.SetTrigger("Cast");
     }
+
+
+    //finnicky code but kinda works
+    Transform FindTargetOnShoot()
+    {
+        Collider[] hits = Physics.OverlapSphere(transform.position, lockOnRadius, enemyMask);
+
+        Transform bestTarget = null;
+        float bestAngle = lockOnAngle;
+
+        foreach (Collider hit in hits)
+        {
+            Vector3 dir = (hit.transform.position - transform.position).normalized;
+            float angle = Vector3.Angle(transform.forward, dir);
+
+            if (angle < bestAngle)
+            {
+                bestAngle = angle;
+                bestTarget = hit.transform;
+            }
+        }
+
+        return bestTarget;
+    }
+
+    
 }

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:RPG TUD/Assets/Teds Folder/Models/magic book.fbm/purple book.png.meta
 guid: c569b3720b0e8ef48b92031568395283
+=======
+guid: 024b098f68049374d99ee617af8270aa
+>>>>>>> dc24b3e29817359d7ddb1086eb1f443abd2d726a:RPG TUD/Assets/_Scenes/Teds Folder/Models/magic book.fbm/purple book.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

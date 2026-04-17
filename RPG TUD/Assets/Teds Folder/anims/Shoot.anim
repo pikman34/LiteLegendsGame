@@ -36363,7 +36363,7 @@ AnimationClip:
   - time: 0.16666667
     functionName: shootArrow
     data: shootArrow
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 5079435184537647157, guid: 4b7bc9db015284940ac10df412209e84, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

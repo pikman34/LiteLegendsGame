@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:RPG TUD/Assets/Teds Folder/Models/magic book.fbm/skull2.png.meta
-guid: d8492ff349f02374a8736cf32cf57a71
-=======
-guid: 11234382449e90b43a9a032bc3ed03d8
->>>>>>> dc24b3e29817359d7ddb1086eb1f443abd2d726a:RPG TUD/Assets/_Scenes/Teds Folder/Models/magic book.fbm/skull2.png.meta
+guid: d9e8507566d520b4d8122af33024c1bb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -98,7 +94,20 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1

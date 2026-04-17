@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:RPG TUD/Assets/Teds Folder/Materials/String.mat.meta
 guid: 08521879ffdab8345873358e1fc84b7b
+=======
+guid: 18fd7d3ce209eed4e9b5a77f29e69df4
+>>>>>>> dc24b3e29817359d7ddb1086eb1f443abd2d726a:RPG TUD/Assets/_Scenes/Teds Folder/Materials/String.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:RPG TUD/Assets/Teds Folder/Materials/blades texture.mat.meta
 guid: dd6a6605d13e95146b74c3d0e13adaef
+=======
+guid: ae03d03928d71e647b90efde473e250d
+>>>>>>> dc24b3e29817359d7ddb1086eb1f443abd2d726a:RPG TUD/Assets/_Scenes/Teds Folder/Materials/blades texture.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000

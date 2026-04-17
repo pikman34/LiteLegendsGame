@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:RPG TUD/Assets/Teds Folder/Models/magic book.fbm/pages.png.meta
 guid: fee8c50f412b1ec4d83776b1c03b6fde
+=======
+guid: 69a209bc7fd1fb74caaebc5ce4f6e5e7
+>>>>>>> dc24b3e29817359d7ddb1086eb1f443abd2d726a:RPG TUD/Assets/_Scenes/Teds Folder/Models/magic book.fbm/pages.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

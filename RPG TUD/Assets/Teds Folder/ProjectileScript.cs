@@ -1,20 +1,73 @@
+using System.Collections;
 using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-    public float speed = 20f;
-    public float damage = 15f;
-    public float lifetime = 5f;
-    public GameObject particleEffect;
-    public 
+    public float speed;
+    public float rotateSpeed;
+    public float lifetime;
+    private Transform target;
+    private float timer;
+    public float isSpell;
+    public float isArrow;
+    public float damage;
+    public GameObject hitEffect;
+
     void Start()
     {
-        
-    }
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-    // Update is called once per frame
+        Collider[] playerColliders = player.GetComponentsInChildren<Collider>();
+        Collider myCollider = GetComponent<Collider>();
+
+        foreach (Collider col in playerColliders)
+        {
+            Physics.IgnoreCollision(myCollider, col);
+        }
+    }
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * 20f);
+        timer += Time.deltaTime;
+        if (timer >= lifetime)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        if (isSpell == 1)
+        {
+            if (target == null)
+            {
+                transform.Translate(Vector3.forward * speed * Time.deltaTime);
+                return;
+            }
+
+            Vector3 dir = (target.position - transform.position).normalized;
+            Quaternion lookRot = Quaternion.LookRotation(dir);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, rotateSpeed * Time.deltaTime);
+        }
+        if (isArrow == 1)
+        {
+            //123
+        }
+        
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+    }
+
+    public void SetTarget(Transform t)
+    {
+        target = t;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.root.CompareTag("Player")) return;
+
+        if (hitEffect != null)
+        {
+            Instantiate(hitEffect, transform.position, Quaternion.identity);   
+        }
+
+        Destroy(gameObject);
     }
 }
