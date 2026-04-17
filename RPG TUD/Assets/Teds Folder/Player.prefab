@@ -399,6 +399,7 @@ Transform:
   - {fileID: 3124215334800728559}
   - {fileID: 8978890561203722783}
   - {fileID: 7392261910063696771}
+  - {fileID: 5167141870897585155}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -179.61, z: 0}
 --- !u!95 &4730158601119230555
@@ -691,19 +692,22 @@ MonoBehaviour:
   attackCooldown: 1.25
   shootCooldown: 1
   castCooldown: 3
-  attackDamage: 25
-  shootDamage: 15
   isShooting: 0
   isCasting: 0
   isMeleeing: 0
   lockRange: 10
   currentTarget: {fileID: 0}
   rotateSpeed: 25
+  isLocked: 0
   animator: {fileID: 4730158601119230555}
   weaponCollider: {fileID: 6168371935276573895}
+  cinemachineCamera: {fileID: 0}
+  arrowPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
   swingParticles: {fileID: 4410509916980181270}
   hitParticles: {fileID: 0}
   shootParticles: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &6930600027617026078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1332,6 +1336,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5143087807807696629}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3555070719804180213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5167141870897585155}
+  m_Layer: 8
+  m_Name: Projectile Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5167141870897585155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3555070719804180213}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.03, y: 1.6, z: 1.12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4388602230198659563}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3637478096572285470
 GameObject:

@@ -13,6 +13,7 @@ public class InventoryItem : MonoBehaviour
         item = new Item();
         item.itemName = itemName;
         item.itemIcon = itemIcon;
+        item.ID = 1;
     }
 
     public Item GetItem()

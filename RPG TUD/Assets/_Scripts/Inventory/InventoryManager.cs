@@ -6,14 +6,45 @@ public class InventoryManager : MonoBehaviour
 {
     private List<Item> inventoryList;
 
+    public static InventoryManager Instance { get; private set; }
+    Dictionary<int, int> itemsCountCache = new();
+    public event Action OnInventoryChanged;
     // Create delegate function
     public static Action OnInventoryChange;
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
 
     void Start()
     {
         inventoryList = new List<Item>();
+        RebuildItemCounts();
     }
+
+    public void RebuildItemCounts()
+    {
+        itemsCountCache.Clear();
+
+        foreach (Item item in inventoryList)
+        {
+            if (item != null)
+            {
+                itemsCountCache[item.ID] = itemsCountCache.GetValueOrDefault(item.ID, 0) + item.stackSize;
+            }
+        }
+
+        OnInventoryChanged?.Invoke();
+    }
+
+    public Dictionary<int, int> GetItemCounts() => itemsCountCache;
 
     public List<Item> GetIventoryList()
     {
@@ -26,6 +57,7 @@ public class InventoryManager : MonoBehaviour
         if(inventoryList.Count == 0)
         {
             inventoryList.Add(item);
+            RebuildItemCounts();
         }
         else
         {
@@ -36,6 +68,7 @@ public class InventoryManager : MonoBehaviour
                 if(item.itemName == i.itemName)
                 {
                     i.stackSize++;
+                    RebuildItemCounts();
                     inList = true;
                 }
             }
@@ -43,6 +76,7 @@ public class InventoryManager : MonoBehaviour
             if(!inList)
             {
                 inventoryList.Add(item);
+                RebuildItemCounts();
             }          
         }
 
