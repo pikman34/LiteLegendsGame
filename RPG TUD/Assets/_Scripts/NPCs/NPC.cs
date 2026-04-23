@@ -57,6 +57,8 @@ public class NPC : MonoBehaviour, IInteractables
         {
             dialogueIndex = dialogueData.questCompletedIndex;
         }
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
         IsDialogueActive = true;
         
@@ -179,6 +181,9 @@ public class NPC : MonoBehaviour, IInteractables
 
     public void EndDialogue()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         if(questState == QuestState.Completed && !QuestController.Instance.IsQuestHandedIn(dialogueData.quest.questID))
         {
             HandleQuestCompletion(dialogueData.quest);

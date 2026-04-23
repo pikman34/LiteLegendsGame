@@ -116,6 +116,7 @@ public class QuestController : MonoBehaviour
         foreach(var itemRequirement in requiredItems)
         {
             //RemoveItemsFromInventory
+            Debug.Log("Removal");
             InventoryManager.Instance.RemoveItemsFromInventory(itemRequirement.Key, itemRequirement.Value);
         }
 
