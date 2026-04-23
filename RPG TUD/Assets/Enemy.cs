@@ -99,10 +99,10 @@ public class SimpleEnemy : MonoBehaviour
                 Vector3 dir = FlatDirection(rb.position, player.position);
                 Vector3 perp = new Vector3(-dir.z, 0f, dir.x);
 
-                if (perp.sqrMagnitude > 0.0001f)
-                    currentMoveDir = perp.normalized;
+                if (dir.sqrMagnitude > 0.0001f)
+                    currentMoveDir = dir;
 
-                Vector3 orbitMove = perp.normalized * orbitSpeed * Time.fixedDeltaTime;
+                Vector3 orbitMove = (perp.normalized * 0.8f + dir * 0.2f) * orbitSpeed * Time.fixedDeltaTime;
                 rb.MovePosition(rb.position + orbitMove);
 
                 isMoving = true;
@@ -208,6 +208,7 @@ public class SimpleEnemy : MonoBehaviour
         {
             wobbleTimer += Time.fixedDeltaTime;
             float angle = Mathf.Sin(wobbleTimer * wobbleSpeed) * wobbleAmount;
+
             Quaternion wobbleRot = faceRot * Quaternion.Euler(0f, 0f, angle);
 
             visual.rotation = Quaternion.Slerp(
