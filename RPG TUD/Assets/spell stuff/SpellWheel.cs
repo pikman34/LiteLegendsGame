@@ -30,7 +30,7 @@ public class PauseMenu : MonoBehaviour
     {
         StartCoroutine(FadeOut());
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
         isPaused = false;
     }
