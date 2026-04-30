@@ -11,6 +11,7 @@ public class PlayerInteraction : MonoBehaviour
     private InteractiveObject currentInteractable;
     private ObjectHighlighter currentHighlight;
     private DialogueTrigger currentDialogue;
+    private QuestChecker currentQuest;
 
   
     void Update()
@@ -39,6 +40,12 @@ public class PlayerInteraction : MonoBehaviour
     {
         currentDialogue = other.GetComponentInParent<DialogueTrigger>();
         currentInteractable = other.GetComponentInParent<InteractiveObject>();
+        currentQuest = other.GetComponentInParent<QuestChecker>();
+
+        if (currentQuest != null)
+        {
+            currentQuest.TriggerQuestCheck();
+        }
 
         if (currentDialogue != null)
         {

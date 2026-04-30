@@ -150783,6 +150783,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
   m_PrefabInstance: {fileID: 8099813706173163980}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1902837196 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
+  m_PrefabInstance: {fileID: 8099813706173163980}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1929187542
 GameObject:
   m_ObjectHideFlags: 0
@@ -151297,11 +151302,6 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
---- !u!198 &2015121692 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2762540482005057195, guid: 92d2de6af724d8e45ac09e21960aab87, type: 3}
-  m_PrefabInstance: {fileID: 6462924195335273486}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2015121693 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9076252445461679166, guid: 92d2de6af724d8e45ac09e21960aab87, type: 3}
@@ -151326,7 +151326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   fireballPrefab: {fileID: 6303641883851401205, guid: 6040d9a2c1d04c04cb5f9d5c000c227f, type: 3}
   fireballSpawnPoint: {fileID: 1412773294}
-  playerCamera: {fileID: 2037884908}
+  playerCamera: {fileID: 0}
   playerTurn: {fileID: 8181382823811991476}
   distance: 12.5
   travelTime: 0.8
@@ -151334,11 +151334,6 @@ MonoBehaviour:
   spawnForwardOffset: 1
   turnTime: 0.3
   castDelay: 0.02
---- !u!20 &2037884908 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
-  m_PrefabInstance: {fileID: 8099813706173163980}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2047665481
 GameObject:
   m_ObjectHideFlags: 0
@@ -155883,18 +155878,17 @@ GameObject:
   - component: {fileID: 5558642023069457374}
   - component: {fileID: 8181382823811991468}
   - component: {fileID: 8181382823811991470}
-  - component: {fileID: 5558642023069457375}
+  - component: {fileID: 8181382823811991477}
   - component: {fileID: 2433118217206952228}
   - component: {fileID: 8181382823811991464}
   - component: {fileID: 5558642023069457368}
-  - component: {fileID: 8181382823811991465}
-  - component: {fileID: 8181382823811991466}
   - component: {fileID: 8181382823811991471}
   - component: {fileID: 8181382823811991473}
   - component: {fileID: 8181382823811991472}
-  - component: {fileID: 8181382823811991474}
   - component: {fileID: 8181382823811991475}
   - component: {fileID: 8181382823811991476}
+  - component: {fileID: 8181382823811991465}
+  - component: {fileID: 8181382823811991466}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -155929,7 +155923,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5558642023069457375}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: InputMove
         m_Mode: 0
@@ -155945,7 +155939,7 @@ MonoBehaviour:
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5558642023069457375}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: InputLook
         m_Mode: 0
@@ -155961,7 +155955,7 @@ MonoBehaviour:
     m_ActionName: 'Player/Look[/Mouse/delta,/XInputControllerWindows/rightStick]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5558642023069457375}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: InputJump
         m_Mode: 0
@@ -155977,7 +155971,7 @@ MonoBehaviour:
     m_ActionName: 'Player/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5558642023069457375}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: InputSprint
         m_Mode: 0
@@ -155996,10 +155990,10 @@ MonoBehaviour:
     m_ActionId: e4ce1614-c754-48c1-9103-33130441661f
     m_ActionName: UI/New action
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: KeyboardMouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1902837196}
 --- !u!143 &5558642023069457374
 CharacterController:
   m_ObjectHideFlags: 0
@@ -156025,50 +156019,6 @@ CharacterController:
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.93, z: 0}
---- !u!114 &5558642023069457375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5558642023069457364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 5
-  SprintSpeed: 7
-  RotationSmoothTime: 0.12
-  SpeedChangeRate: 10
-  LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
-  FootstepAudioClips:
-  - {fileID: 8300000, guid: 72f526a6a9890f643a88e85a61c86c8a, type: 3}
-  - {fileID: 8300000, guid: 85016e0f2b01da248b9663dd49a161b0, type: 3}
-  - {fileID: 8300000, guid: 186de84b3207156479abe98f4958fed0, type: 3}
-  - {fileID: 8300000, guid: 1a91fcd19acf1e54bba0945d9f390849, type: 3}
-  - {fileID: 8300000, guid: 14e8a8d2158bec840b56c54f5266e692, type: 3}
-  - {fileID: 8300000, guid: 29841e7d5bbfb5b419c9ad16ca8bc4c1, type: 3}
-  - {fileID: 8300000, guid: dd1af302b8902684d9381de1f2d3a5af, type: 3}
-  - {fileID: 8300000, guid: 67c8b33e424ccdc4486edf538ab91c5a, type: 3}
-  - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
-  - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
-  FootstepAudioVolume: 0.3
-  JumpHeight: 1.2
-  Gravity: -15
-  JumpTimeout: 0.3
-  FallTimeout: 0.15
-  Grounded: 1
-  GroundedOffset: -0.14
-  GroundedRadius: 0.28
-  GroundLayers:
-    serializedVersion: 2
-    m_Bits: 1
-  CinemachineCameraTarget: {fileID: 275379618207818383}
-  TopClamp: 70
-  BottomClamp: -30
-  CameraAngleOverride: 0
-  LockCameraPosition: 0
 --- !u!1 &5669252293646987144
 GameObject:
   m_ObjectHideFlags: 0
@@ -156300,6 +156250,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92d2de6af724d8e45ac09e21960aab87, type: 3}
+--- !u!198 &6462924195335273487 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2762540482005057195, guid: 92d2de6af724d8e45ac09e21960aab87, type: 3}
+  m_PrefabInstance: {fileID: 6462924195335273486}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6492563571738904465
 GameObject:
   m_ObjectHideFlags: 0
@@ -156686,6 +156641,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4529cb8333cde234b830107029e197e7, type: 3}
+--- !u!198 &7268039541388894793 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9161145928578597118, guid: 4529cb8333cde234b830107029e197e7, type: 3}
+  m_PrefabInstance: {fileID: 7268039541388894792}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7268039541388894794 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4642609713650467128, guid: 4529cb8333cde234b830107029e197e7, type: 3}
+  m_PrefabInstance: {fileID: 7268039541388894792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7304584183599105920
 GameObject:
   m_ObjectHideFlags: 0
@@ -157081,9 +157046,9 @@ MonoBehaviour:
   shieldPrefab: {fileID: 0}
   spawnPoint: {fileID: 1412773294}
   player: {fileID: 5558642023069457364}
-  swingParticles: {fileID: 2015121692}
-  hitParticles: {fileID: 2015121692}
-  shootParticles: {fileID: 2015121692}
+  swingParticles: {fileID: 6462924195335273487}
+  hitParticles: {fileID: 7268039541388894794}
+  shootParticles: {fileID: 7268039541388894793}
 --- !u!114 &8181382823811991466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157191,18 +157156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a0cdb072ca921b428f89b5f74b24db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
---- !u!114 &8181382823811991474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5558642023069457364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c25905a9661b5e8499c3e83b994e4c6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!114 &8181382823811991475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157232,6 +157185,50 @@ MonoBehaviour:
   turnSpeed: 8
   stopAngle: 0
   maxTurnAngle: 360
+--- !u!114 &8181382823811991477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5558642023069457364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 2
+  SprintSpeed: 5.335
+  RotationSmoothTime: 0.12
+  SpeedChangeRate: 10
+  LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
+  FootstepAudioClips:
+  - {fileID: 8300000, guid: 72f526a6a9890f643a88e85a61c86c8a, type: 3}
+  - {fileID: 8300000, guid: 85016e0f2b01da248b9663dd49a161b0, type: 3}
+  - {fileID: 8300000, guid: 186de84b3207156479abe98f4958fed0, type: 3}
+  - {fileID: 8300000, guid: 1a91fcd19acf1e54bba0945d9f390849, type: 3}
+  - {fileID: 8300000, guid: 14e8a8d2158bec840b56c54f5266e692, type: 3}
+  - {fileID: 8300000, guid: 29841e7d5bbfb5b419c9ad16ca8bc4c1, type: 3}
+  - {fileID: 8300000, guid: dd1af302b8902684d9381de1f2d3a5af, type: 3}
+  - {fileID: 8300000, guid: 67c8b33e424ccdc4486edf538ab91c5a, type: 3}
+  - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
+  - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
+  FootstepAudioVolume: 0.3
+  JumpHeight: 1.2
+  Gravity: -15
+  JumpTimeout: 0.3
+  FallTimeout: 0.15
+  Grounded: 1
+  GroundedOffset: -0.14
+  GroundedRadius: 0.28
+  GroundLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  CinemachineCameraTarget: {fileID: 275379618207818383}
+  TopClamp: 30
+  BottomClamp: -20
+  CameraAngleOverride: 0
+  LockCameraPosition: 0
 --- !u!4 &8199538726133532779
 Transform:
   m_ObjectHideFlags: 0
