@@ -157229,6 +157229,8 @@ MonoBehaviour:
   BottomClamp: -20
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  _cinemachineTargetYaw: 0
+  _cinemachineTargetPitch: 0
 --- !u!4 &8199538726133532779
 Transform:
   m_ObjectHideFlags: 0
@@ -157297,6 +157299,18 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 3641
       objectReference: {fileID: 0}
+    - target: {fileID: 2810031413903005593, guid: a1b76162127701542b9a15332238d888, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8025844
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810031413903005593, guid: a1b76162127701542b9a15332238d888, type: 3}
+      propertyPath: m_Center.y
+      value: 0.4012922
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810031413903005593, guid: a1b76162127701542b9a15332238d888, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3264215577645477694, guid: a1b76162127701542b9a15332238d888, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.97
@@ -157336,6 +157350,14 @@ PrefabInstance:
     - target: {fileID: 3264215577645477694, guid: a1b76162127701542b9a15332238d888, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129700898196128869, guid: a1b76162127701542b9a15332238d888, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7700133
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129700898196128869, guid: a1b76162127701542b9a15332238d888, type: 3}
+      propertyPath: m_Center.y
+      value: 0.38500667
       objectReference: {fileID: 0}
     - target: {fileID: 6139943327689319530, guid: a1b76162127701542b9a15332238d888, type: 3}
       propertyPath: m_Mesh

@@ -4851,7 +4851,7 @@ GameObject:
   - component: {fileID: 5682892477938005170}
   m_Layer: 0
   m_Name: SpellProjectile
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

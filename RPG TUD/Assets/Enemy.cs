@@ -228,4 +228,31 @@ public class SimpleEnemy : MonoBehaviour
             );
         }
     }
+
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+
+        if (health <= 0f)
+            Destroy(gameObject);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Projectile"))
+        {
+            ProjectileScript proj = other.GetComponent<ProjectileScript>();
+
+            if (proj != null)
+            {
+                TakeDamage(proj.damage);
+            }
+        }
+    }
+
+    public void Die()
+    {
+        //AAAAA
+        Destroy(gameObject);
+    }
 }
