@@ -872,11 +872,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 0d470308-a69f-4ad0-9495-667acd22c52b
+  cloudProjectId: 1b688940-6df7-439f-9af7-8c2c0a757e9b
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: RPG TUD
-  organizationId: peter-lynch
+  projectName: My project
+  organizationId: noah-o-brien
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
