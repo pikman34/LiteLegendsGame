@@ -9,6 +9,7 @@ TagManager:
   - InventoryItem
   - QuestItem
   - Projectile
+  - Arrow
   layers:
   - Default
   - TransparentFX
