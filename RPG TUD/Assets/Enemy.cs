@@ -1,10 +1,16 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody))]
 public class SimpleEnemy : MonoBehaviour
 {
     public Transform player;
     public Transform visual;
+    public AudioClip deathSound;
+    public AudioClip shootSound;
+    public GameObject arrowPrefab;
+    public Transform shootPoint;
 
     public float detectionRadius = 8f;
     public float loseRadius = 12f;
@@ -12,6 +18,9 @@ public class SimpleEnemy : MonoBehaviour
     public float moveSpeed = 2f;
     public float orbitSpeed = 3f;
     public float attackSpeed = 8f;
+    public float shootCooldown = 1.5f;
+
+    private float shootTimer;
 
     public float orbitTime = 1.5f;
     public float damage = 10f;
@@ -51,6 +60,8 @@ public class SimpleEnemy : MonoBehaviour
 
     void FixedUpdate()
     {
+        shootTimer -= Time.fixedDeltaTime;
+
         if (player == null) return;
 
         float distToPlayer = FlatDistance(rb.position, player.position);
@@ -77,6 +88,7 @@ public class SimpleEnemy : MonoBehaviour
                 }
 
                 MoveTowards(player.position, moveSpeed);
+                ShootArrow();
                 isMoving = true;
 
                 if (distToPlayer < 2f)
@@ -252,7 +264,27 @@ public class SimpleEnemy : MonoBehaviour
 
     public void Die()
     {
-        //AAAAA
+        //play sound?
         Destroy(gameObject);
+    }
+
+    public void ShootArrow()
+    {
+        if (shootTimer > 0f) return;
+
+        Vector3 dir = FlatDirection(
+            shootPoint.position,
+            player.position
+        );
+
+        Quaternion rot = Quaternion.LookRotation(dir);
+
+        Instantiate(
+            arrowPrefab,
+            shootPoint.position,
+            rot
+        );
+
+        shootTimer = shootCooldown;
     }
 }

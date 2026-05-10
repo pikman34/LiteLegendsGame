@@ -8,6 +8,7 @@ public class CombatScript : MonoBehaviour
     public float attackCooldown = 0.75f;
     public float shootCooldown = .75f;
     public float castCooldown = 3f;
+    public float health = 100f;
     private float lastAttackTime;
     private float lastShootTime;
     private float lastCastTime;
@@ -36,6 +37,9 @@ public class CombatScript : MonoBehaviour
     public ParticleSystem swingParticles;
     public ParticleSystem hitParticles;
     public ParticleSystem shootParticles;
+    public AudioClip shootSound;
+    public AudioClip coinSound;
+    public AudioClip oofSound;
     
     void Awake()
     {
@@ -115,7 +119,7 @@ public class CombatScript : MonoBehaviour
         currentTarget = FindTargetOnShoot();
         lastShootTime = Time.time;
         isShooting = true;
-        
+        AudioSource.PlayClipAtPoint(shootSound, transform.position);
         animator.SetTrigger("Shoot");
     }
 
@@ -127,6 +131,7 @@ public class CombatScript : MonoBehaviour
         lastCastTime = Time.time;
         isCasting = true;
         animator.SetTrigger("Cast");
+        AudioSource.PlayClipAtPoint(shootSound, transform.position);
     }
 
 
@@ -153,5 +158,5 @@ public class CombatScript : MonoBehaviour
         return bestTarget;
     }
 
-    
+
 }
