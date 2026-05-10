@@ -23,7 +23,7 @@ MonoBehaviour:
   autoProgressLines: 010000000000
   endDialogueLines: 000001010101
   autoProgressDelay: 1.5
-  typingSpeed: 0.05
+  typingSpeed: 0.1
   choices:
   - dialogueIndex: 1
     choices:
