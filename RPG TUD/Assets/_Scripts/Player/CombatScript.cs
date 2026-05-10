@@ -1,6 +1,7 @@
 using UnityEngine;
 using StarterAssets;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class CombatScript : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class CombatScript : MonoBehaviour
     public float attackCooldown = 0.75f;
     public float shootCooldown = .75f;
     public float castCooldown = 3f;
-    public float health = 100f;
+    public float maxHealth = 100f;
+    public float health;
     private float lastAttackTime;
     private float lastShootTime;
     private float lastCastTime;
@@ -45,6 +47,8 @@ public class CombatScript : MonoBehaviour
     {
         controller = GetComponent<ThirdPersonController>();
         player = GameObject.FindGameObjectWithTag("Player");
+
+        health = maxHealth;
 
         if (weaponCollider != null)
             weaponCollider.enabled = false;
@@ -158,5 +162,25 @@ public class CombatScript : MonoBehaviour
         return bestTarget;
     }
 
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
 
+        health = Mathf.Clamp(health, 0, maxHealth);
+
+        UIManager.Instance.UpdateHealthBar((int)health, (int)maxHealth);
+
+        Debug.Log("Player Health: " + health);
+
+        if (health <= 0)
+        {
+            Death();
+        }
+    }
+    
+    public void Death()
+    {
+        string GameScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(GameScene);
+    }
 }

@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         promptText.text = "";
+        Instance = this;
     }
 
     private void OnEnable()
@@ -117,6 +118,6 @@ public class UIManager : MonoBehaviour
         promptText.text = "";
     }
 
-
+    
 
 }

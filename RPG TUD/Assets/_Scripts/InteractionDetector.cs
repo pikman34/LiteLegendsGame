@@ -9,10 +9,12 @@ public class InteractionDetector : MonoBehaviour
     public GameObject player;
     public AudioClip coinSound;
     public AudioClip oofSound;
+    public static UIManager Instance;
 
     void Start()
     {
         interactionIcon.SetActive(false);
+        Instance = UIManager.Instance;
     }
 
     void Update()
@@ -20,6 +22,12 @@ public class InteractionDetector : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             interactableInRange?.Interact();
+        }
+
+        if (player.GetComponent<CombatScript>().health <= 0)
+        {
+            Debug.Log("ayo you dead homie");
+            player.GetComponent<CombatScript>().Death();
         }
     }
 
@@ -37,9 +45,12 @@ public class InteractionDetector : MonoBehaviour
 
         if (other.CompareTag("Arrow"))
         {
-            player.GetComponent<CombatScript>().health -= 10f;
-            Debug.Log("Player Health: " + player.GetComponent<CombatScript>().health);
+            player.GetComponent<CombatScript>().TakeDamage(10f);
             AudioSource.PlayClipAtPoint(oofSound, transform.position);
+            UIManager.Instance.UpdateHealthBar(
+                (int)player.GetComponent<CombatScript>().health,
+                (int)player.GetComponent<CombatScript>().maxHealth
+            );
         }
     }
 

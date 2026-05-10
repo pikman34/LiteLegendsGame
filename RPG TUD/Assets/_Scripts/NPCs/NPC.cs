@@ -2,6 +2,8 @@ using System.Collections;
 using NUnit.Framework;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class NPC : MonoBehaviour, IInteractables
 {
@@ -184,19 +186,30 @@ public class NPC : MonoBehaviour, IInteractables
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        if(questState == QuestState.Completed && !QuestController.Instance.IsQuestHandedIn(dialogueData.quest.questID))
-        {
-            HandleQuestCompletion(dialogueData.quest);
-        }
-
-        StopAllCoroutines();
         IsDialogueActive = false;
+
         dialogueUI.SetDialogueText("");
         dialogueUI.ShowDialogueUI(false);
+
+        Dictionary<int, int> items = InventoryManager.Instance.GetItemCounts();
+
+        if (items.ContainsKey(1) && items[1] >= 20)
+        {
+            SceneManager.LoadScene("EndScene");
+        }
     }
 
     void HandleQuestCompletion(Quests quest)
     {
         QuestController.Instance.HandinQuest(quest.questID);
+
+    }
+
+    public void EndGame()
+    {
+        IsDialogueActive = false;
+        dialogueUI.SetDialogueText("");
+        dialogueUI.ShowDialogueUI(false);
+        SceneManager.LoadScene("EndScene");
     }
 }
