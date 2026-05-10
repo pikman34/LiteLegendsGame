@@ -86,19 +86,24 @@ public class InventoryManager : MonoBehaviour
 
     public void RemoveItemsFromInventory(int itemID, int amountToRemove)
     {
-        foreach(Item item in inventoryList)
+        for (int i = inventoryList.Count - 1; i >= 0; i--)
         {
-            if (amountToRemove <= 0) break;
+            if (amountToRemove <= 0)
+            break;
 
-            if(item.ID == itemID)
+            Item item = inventoryList[i];
+
+            if (item.ID == itemID)
             {
                 int removed = Mathf.Min(amountToRemove, item.stackSize);
-                inventoryList.Remove(item);
-                amountToRemove -= removed;
 
-                if(item.stackSize == 0)
+                item.stackSize -= removed;
+                amountToRemove -= removed;
+                RebuildItemCounts();
+
+                if (item.stackSize <= 0)
                 {
-                    Destroy(gameObject);
+                    inventoryList.RemoveAt(i);
                 }
             }
         }

@@ -27,6 +27,9 @@ public class QuestController : MonoBehaviour
 
         activateQuests.Add(new QuestProgress(quest));
 
+        //check current inventory
+        CheckInventoryForQuests();
+
         questUI.UpdateQuestUI();
     }
 
@@ -64,7 +67,7 @@ public class QuestController : MonoBehaviour
     public void HandinQuest(string questID)
     {
         //Try remove required items
-        if (RemoveRequiredItemsFromInventory(questID))
+        if (!RemoveRequiredItemsFromInventory(questID))
         {
             //Quest couldn't be completed - missing items
             return;
